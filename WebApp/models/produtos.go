@@ -12,7 +12,7 @@ type Produto struct {
 	Quantidade int
 }
 
-func buscaProdutos() []Produto {
+func BuscaProdutos() []Produto {
 	db := db.ConectaComBanco()
 
 	selectDeProdutos, err := db.Query("SELECT * FROM produtos")

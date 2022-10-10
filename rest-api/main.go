@@ -2,20 +2,17 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
+	"tfalc/GolangStudies/rest-api/models"
+	"tfalc/GolangStudies/rest-api/routes"
 )
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Home Page")
-}
-
-func HandleRequest() {
-	http.HandleFunc("/", Home)
-	log.Fatal(http.ListenAndServe(":8000", nil))
-}
-
 func main() {
+
+	models.Personalidades = []models.Personalidade{
+		{Nome: "Scarlet Johansson", Historia: "Atriz da Marvel"},
+		{Nome: "Chad Bosewick", Historia: "Falecido ator da Marvel"},
+	}
+
 	fmt.Println("Iniciando servidor Rest com Golang!")
-	HandleRequest()
+	routes.HandleRequest()
 }
